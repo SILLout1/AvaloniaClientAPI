@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Apps MVS code API\\MYApi2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A0475217-4131-44C2-AA7A-161E6ACD0982}|MYApi2\\MYApi2.csproj|e:\\apps mvs code api\\myapi2\\myapi2\\dto\\createemployyes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0475217-4131-44C2-AA7A-161E6ACD0982}|MYApi2\\MYApi2.csproj|solutionrelative:myapi2\\dto\\createemployyes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0475217-4131-44C2-AA7A-161E6ACD0982}|MYApi2\\MYApi2.csproj|e:\\apps mvs code api\\myapi2\\myapi2\\controllers\\posishonscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0475217-4131-44C2-AA7A-161E6ACD0982}|MYApi2\\MYApi2.csproj|solutionrelative:myapi2\\controllers\\posishonscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0475217-4131-44C2-AA7A-161E6ACD0982}|MYApi2\\MYApi2.csproj|e:\\apps mvs code api\\myapi2\\myapi2\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0475217-4131-44C2-AA7A-161E6ACD0982}|MYApi2\\MYApi2.csproj|solutionrelative:myapi2\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateEmployyes.cs",
+              "DocumentMoniker": "E:\\Apps MVS code API\\MYApi2\\MYApi2\\DTO\\CreateEmployyes.cs",
+              "RelativeDocumentMoniker": "MYApi2\\DTO\\CreateEmployyes.cs",
+              "ToolTip": "E:\\Apps MVS code API\\MYApi2\\MYApi2\\DTO\\CreateEmployyes.cs",
+              "RelativeToolTip": "MYApi2\\DTO\\CreateEmployyes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-23T07:30:54.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PosishonsController.cs",
+              "DocumentMoniker": "E:\\Apps MVS code API\\MYApi2\\MYApi2\\Controllers\\PosishonsController.cs",
+              "RelativeDocumentMoniker": "MYApi2\\Controllers\\PosishonsController.cs",
+              "ToolTip": "E:\\Apps MVS code API\\MYApi2\\MYApi2\\Controllers\\PosishonsController.cs",
+              "RelativeToolTip": "MYApi2\\Controllers\\PosishonsController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAEwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T17:47:39.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "E:\\Apps MVS code API\\MYApi2\\MYApi2\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "MYApi2\\Controllers\\EmployeesController.cs",
+              "ToolTip": "E:\\Apps MVS code API\\MYApi2\\MYApi2\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "MYApi2\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAmwG4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T16:52:30.566Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

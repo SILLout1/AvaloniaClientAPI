@@ -1,0 +1,148 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:SimpleAppWithApi.Models"
+        x:Class="SimpleAppWithApi.MainWindow"
+        Width="900" Height="450"
+        Title="Employees">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0"
+                Background="#36385F"
+                BorderBrush="#dee2e6"
+                BorderThickness="0,0,0,1"
+                Padding="10">
+
+            <StackPanel Spacing="10">
+
+                <TextBlock Text="Список сотрудников"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="#D9C29C"
+                           HorizontalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="12">
+
+                    <TextBox Width="180"
+                             Height="30"
+                             Watermark="Поиск..."
+                             Name="SearchBox"
+                             TextChanged="SearchBox_TextChanged"/>
+
+                    <ComboBox Width="160" Height="30"  Name="SortComboBox"
+          SelectionChanged="SortComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Все"/>
+                        <ComboBoxItem Content="По фамилии"/>
+                        <ComboBoxItem Content="По имени"/>
+                        <ComboBoxItem Content="По дате рождения"/>
+                    </ComboBox>
+
+                    <ComboBox Width="160" Height="30"
+                    Name="SortComboBoxRole"
+                    SelectionChanged="SortComboBoxRole_SelectionChanged">
+                       
+                    </ComboBox>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1"
+                BorderBrush="#dee2e6"
+                BorderThickness="1"
+                Background="White"
+                CornerRadius="3"
+                Margin="10">
+
+            <Grid RowDefinitions="Auto,*,Auto">
+
+                <Border Grid.Row="0"
+                        Background="#f8f9fa"
+                        Height="40">
+                    <Grid ColumnDefinitions="80,120,120,120,140,120,130">
+
+                        <TextBlock Grid.Column="0" Text="ID" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Фамилия" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="Имя" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text="Отчество" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="4" Text="Дата рождения" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="5" Text="Должность" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="6" Text="Действия" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+                </Border>
+
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="UserListControl">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:User">
+                                <Border Background="#F0F0F0" Margin="2" Padding="5">
+                                    <Grid ColumnDefinitions="80,120,120,120,140,150,80">
+
+                                        <TextBlock Grid.Column="0" Text="{Binding Id}" Foreground="Gray" HorizontalAlignment="Center"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Surname}" Foreground="Gray" HorizontalAlignment="Center"/>
+                                        <TextBlock Grid.Column="2" Text="{Binding Name}" Foreground="Gray" HorizontalAlignment="Center"/>
+                                        <TextBlock Grid.Column="3" Text="{Binding Patronymic, TargetNullValue='-'}" Foreground="Gray" HorizontalAlignment="Center"/>
+                                        <TextBlock Grid.Column="4" Text="{Binding Birthday, StringFormat='{}{0:dd.MM.yyyy}'}" Foreground="Gray" HorizontalAlignment="Center"/>
+                                        <TextBlock Grid.Column="5" Text="{Binding RoleName}" Foreground="Gray" HorizontalAlignment="Center"/>
+
+                                        <StackPanel Grid.Column="6" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Content="✏️"
+                                                    Width="40"
+                                                    Height="30"
+                                                    Margin="2"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Tag="{Binding Id}"
+                                                    Click="BtnEdit_Click"/>
+
+                                            <Button Content="🗑️"
+                                                    Width="40"
+                                                    Height="30"
+                                                    Margin="2"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Tag="{Binding Id}"
+                                                    Click="BtnDelete_Click"/>
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+
+                <Border Grid.Row="2"
+                        Background="#f8f9fa"
+                        Height="60">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="20">
+
+                        <Button Content="Добавить"
+                                Width="120"
+                                Height="35"
+                                Background="#28a745"
+                                Foreground="White"
+                                Click="BtnAdd_Click"/>
+
+                        <Button Content="Обновить"
+                                Width="120"
+                                Height="35"
+                                Background="#007bff"
+                                Foreground="White"
+                                Click="BtnRefresh_Click"/>
+
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
