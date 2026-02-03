@@ -1,6 +1,8 @@
 using MYApi2.Models;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.FileProviders;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +25,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var app = builder.Build();
+var app = builder.Build(); 
 
 if (app.Environment.IsDevelopment())
 {
@@ -35,6 +37,14 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
+
+// Разрешаем отдавать статические файлы из Uploads
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Uploads")),
+    RequestPath = "/uploads"
+});
+
 
 app.UseHttpsRedirection();
 

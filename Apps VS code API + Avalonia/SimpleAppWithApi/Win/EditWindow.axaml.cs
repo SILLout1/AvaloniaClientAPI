@@ -1,55 +1,85 @@
 using Avalonia.Controls;
+using Avalonia.Media.Imaging;
 using Avalonia.Data;
 using SimpleAppWithApi.DTO;
 using SimpleAppWithApi.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Win;
-
-public partial class EditWindow : Window
+namespace Win
 {
-    private readonly User _user;
-    private readonly HttpClient _client;
-    private List<Role> _roles = new();
-    public Role? SelectedRole { get; set; }
-
-    public EditWindow(User user, HttpClient client)
+    public partial class EditWindow : Window
     {
-        InitializeComponent();
-        _user = user;
-        _client = client;
-        DataContext = this;
+        private readonly User _user;
+        private readonly HttpClient _client;
+        private List<Role> _roles = new();
+        private string? _selectedPhotoPath;
 
-        TbSurname.Text = user.Surname;
-        TbName.Text = user.Name;
-        TbPatronymic.Text = user.Patronymic;
-        DpBirthday.SelectedDate = user.Birthday;
-    }
+        public EmployeeEditDto? EditedDto { get; private set; }
+        public string? SelectedPhotoPath => _selectedPhotoPath;
 
-    public async Task LoadRolesAsync()
-    {
-        _roles = await _client.GetFromJsonAsync<List<Role>>("/api/Posishons") ?? [];
-        CbRole.ItemsSource = _roles;
-        CbRole.DisplayMemberBinding = new Binding("Name");
-        SelectedRole = _roles.FirstOrDefault(r => r.Id == _user.Roleid);
-        CbRole.SelectedItem = SelectedRole;
-    }
-    public EmployeeEditDto GetEditDto()
-    {
-        var role = CbRole.SelectedItem as Role;
-        return new EmployeeEditDto
+        public EditWindow(User user, HttpClient client)
         {
-            LastName = TbSurname.Text,
-            FirstName = TbName.Text,
-            MiddleName = TbPatronymic.Text,
-            BirthDate = DpBirthday.SelectedDate?.DateTime,
-            PositionCode = role?.Id
-        };
-    }
+            InitializeComponent();
+            _user = user;
+            _client = client;
 
-    private void BtnSave_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => Close(true);
+            TbSurname.Text = user.Surname;
+            TbName.Text = user.Name;
+            TbPatronymic.Text = user.Patronymic;
+            DpBirthday.SelectedDate = user.Birthday;
+            _selectedPhotoPath = user.PhotoPath;
+
+            Opened += async (_, _) =>
+            {
+                await LoadRolesAsync();              
+            };
+        }
+
+        private async Task LoadRolesAsync()
+        {
+            _roles = await _client.GetFromJsonAsync<List<Role>>("/api/Posishons") ?? new();
+            CbRole.ItemsSource = _roles;
+            CbRole.DisplayMemberBinding = new Binding("Name");
+            CbRole.SelectedItem = _roles.FirstOrDefault(r => r.Id == _user.Roleid);
+        }
+        private EmployeeEditDto GetEditDto() => new()
+        {
+             Surname = TbSurname.Text,
+            Name = TbName.Text,
+            Patronymic = TbPatronymic.Text,
+            Birthday = DpBirthday.SelectedDate?.DateTime,
+            Roleid = (CbRole.SelectedItem as Role)?.Id
+        };
+
+        private async void BtnSelectPhoto_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog { AllowMultiple = false };
+            var result = await dialog.ShowAsync(this);
+            if (result?.Length > 0)
+            {
+                _selectedPhotoPath = result[0];
+                using var stream = File.OpenRead(_selectedPhotoPath);
+                ImgPhoto.Source = new Bitmap(stream);
+            }
+        }
+
+        private void BtnSave_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            EditedDto = GetEditDto();
+            Close(true);
+        }
+
+        private void BtnCancel_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            EditedDto = null;
+            Close(false);
+        }
+    }
 }

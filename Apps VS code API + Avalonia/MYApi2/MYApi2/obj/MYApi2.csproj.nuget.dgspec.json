@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj": {}
+    "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\REST(CRUD) API + Avalonia Desktop\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj": {
+    "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\REST(CRUD) API + Avalonia Desktop\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj",
+        "projectUniqueName": "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\REST(CRUD) API + Avalonia Desktop\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj",
         "projectName": "MYApi2",
-        "projectPath": "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj",
+        "projectPath": "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\REST(CRUD) API + Avalonia Desktop\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\MYApi2.csproj",
         "packagesPath": "C:\\Users\\moroz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\obj\\",
+        "outputPath": "C:\\Users\\moroz\\OneDrive\\Рабочий стол\\REST(CRUD) API + Avalonia Desktop\\Apps VS code API + Avalonia\\MYApi2\\MYApi2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -73,6 +73,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.FileProviders.Physical": {
+              "target": "Package",
+              "version": "[10.0.2, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

@@ -14,5 +14,6 @@ namespace MYApi2.DTO
     public DateOnly Birthday { get; set; }
     public int Roleid { get; set; }
     public string RoleName { get; set; } = null!;
+    public string? PhotoPath { get; set; }
     }
 }

@@ -1,25 +1,48 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Win.AddWindow"
-        Width="400" Height="350"
+        Width="400" Height="450"
         WindowStartupLocation="CenterOwner"
-        Title="Добавление сотрудника">
+        Title="Добавление сотрудника"
+        Background="#1e1e1e">
 
-  <StackPanel Margin="15" Spacing="10">
+    <Border Padding="20" Background="#2b2b2b" CornerRadius="8">
+        <StackPanel Spacing="15">
 
-    <TextBlock Text="Добавление сотрудника" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Добавление сотрудника"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
 
-    <TextBox x:Name="TbSurname" Watermark="Фамилия"/>
-    <TextBox x:Name="TbName" Watermark="Имя"/>
-    <TextBox x:Name="TbPatronymic" Watermark="Отчество"/>
+            <StackPanel Spacing="10">
+                <TextBox x:Name="TbSurname" Watermark="Фамилия" Foreground="White" Background="#3a3a3a"/>
+                <TextBox x:Name="TbName" Watermark="Имя" Foreground="White" Background="#3a3a3a"/>
+                <TextBox x:Name="TbPatronymic" Watermark="Отчество" Foreground="White" Background="#3a3a3a"/>
+            </StackPanel>
 
-    <DatePicker x:Name="DpBirthday"/>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock Text="Дата рождения:" Foreground="White" VerticalAlignment="Center"/>
+                <DatePicker x:Name="DpBirthday" Width="150"/>
+            </StackPanel>
 
-    <ComboBox x:Name="CbRole"/>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock Text="Роль:" Foreground="White" VerticalAlignment="Center"/>
+                <ComboBox x:Name="CbRole" Width="200"/>
+            </StackPanel>
 
-    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right" Margin="0,15,0,0">
-      <Button Content="Сохранить" Width="100" Click="BtnSave_Click"/>
-      <Button Content="Отмена" Width="100" Click="BtnCancel_Click"/>
-    </StackPanel>
-  </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="15" VerticalAlignment="Center">
+                <Border Width="100" Height="100" BorderBrush="#555" BorderThickness="1" Background="#444" CornerRadius="4">
+                    <Image x:Name="ImgPhoto" Stretch="UniformToFill"/>
+                </Border>
+                <Button Content="Выбрать фото" Width="140" Height="40" Background="#007bff" Foreground="White" Click="BtnSelectPhoto_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+                <Button Content="Сохранить" Width="120" Height="40" Background="#28a745" Foreground="White" Click="BtnSave_Click"/>
+                <Button Content="Отмена" Width="120" Height="40" Background="#dc3545" Foreground="White" Click="BtnCancel_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
 </Window>

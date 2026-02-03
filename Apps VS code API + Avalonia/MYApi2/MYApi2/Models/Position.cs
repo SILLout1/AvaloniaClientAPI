@@ -5,6 +5,7 @@ namespace MYApi2.Models;
 
 public partial class Position
 {
+    
     public int PositionCode { get; set; }
 
     public string PositionName { get; set; } = null!;

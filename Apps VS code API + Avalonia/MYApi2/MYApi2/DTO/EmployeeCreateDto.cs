@@ -12,5 +12,6 @@ namespace MYApi2.DTO
     public string? MiddleName { get; set; }
     public DateTime BirthDate { get; set; }
     public int PositionCode { get; set; }
+     public IFormFile? Photo { get; set; }
     }
 }

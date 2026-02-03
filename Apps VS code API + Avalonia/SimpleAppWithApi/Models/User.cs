@@ -28,5 +28,7 @@ namespace SimpleAppWithApi.Models
         
         [JsonPropertyName("roleName")]
         public string RoleName { get; set; } = null!;
+        
+        public string? PhotoPath { get; internal set; }
     }
 }

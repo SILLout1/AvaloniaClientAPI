@@ -17,7 +17,7 @@ public partial class Zadanie2Context : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
-    public virtual DbSet<Position> Positions { get; set; }
+    public DbSet<Position> Positions => Set<Position>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Zadanie2;Username=postgres;Password=Asdfgh415");

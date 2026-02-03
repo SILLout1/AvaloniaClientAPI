@@ -22,6 +22,8 @@ public partial class Employee
     public string? Phone { get; set; }
 
     public int? PositionCode { get; set; }
+    
+     public string? PhotoPath { get; set; }
 
     public virtual Position? PositionCodeNavigation { get; set; }
 }
